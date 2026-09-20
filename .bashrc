@@ -26,8 +26,12 @@ fi
 set -o vi
 
 # Reverse search commands with FZF
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind '?:toggle-preview'"
-eval "$(fzf --bash)"
+# export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind '?:toggle-preview'"
+# eval "$(fzf --bash)"
+if command -v fzf >/dev/null 2>&1; then 
+	export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap --bind '?:toggle-preview'" 
+	eval "$(fzf --bash)" 
+fi
 
 # Git
 # Load git-prompt (path varies by OS)
